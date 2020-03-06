@@ -1,33 +1,31 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    v-on:click="goToPage"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
+  <router-link :to="pageRef">
+    <q-item
+      clickable
+      tag="a"
     >
-      <q-icon :name="icon" />
-    </q-item-section>
+      <q-item-section
+        v-if="icon"
+        avatar
+      >
+        <q-icon :name="icon" />
+      </q-item-section>
 
-    <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>
-        {{ caption }}
-      </q-item-label>
-    </q-item-section>
-  </q-item>
+      <q-item-section>
+
+          <q-item-label>{{ title }}</q-item-label>
+        <q-item-label caption>
+            {{ caption }}
+        </q-item-label>
+      </q-item-section>
+    </q-item>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: 'EssentialLink',
-  methods: {
-    goToPage () {
-      this.$router.push(this.pageRef)
-    }
-  },
+
   props: {
     title: {
       type: String,
@@ -51,3 +49,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+</style>

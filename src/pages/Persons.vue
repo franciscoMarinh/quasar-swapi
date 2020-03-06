@@ -1,29 +1,20 @@
 <template>
   <q-page padding>
-    <ul>
-      <li v-for="person in persons" v-bind:key="person.id">
-        {{person}}
-      </li>
-    </ul>
+    <RenderComponent route='https://swapi.co/api/people/?page=1'/>
   </q-page>
 </template>
 
 <script>
-export default {
+import RenderComponent from 'components/RenderComponent'
 
-  beforeMount () {
-    this.$axios.get('people', {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    }).then(result => {
-      this.persons = result.results
-    })
+export default {
+  components: {
+    RenderComponent
   },
 
-  data: function () {
+  data () {
     return {
-      persons: []
+
     }
   }
 }
